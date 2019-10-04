@@ -1,5 +1,5 @@
 package schukin;
 
-public class test {
+public class Test {
 
 }
