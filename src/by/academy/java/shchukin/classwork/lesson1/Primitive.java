@@ -1,4 +1,4 @@
-package classwork.lesson1;
+package by.academy.java.shchukin.classwork.lesson1;
 
 public class Primitive {
 	
