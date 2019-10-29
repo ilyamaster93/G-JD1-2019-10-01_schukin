@@ -17,7 +17,7 @@ public class Test {
 	}
 		
 	static {
-		System.out.println("схематический блоок инициализации класса");
+		System.out.println("схематический блок инициализации класса");
 	}
 
 }
