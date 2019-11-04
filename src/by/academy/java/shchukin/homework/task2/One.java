@@ -3,6 +3,7 @@ package by.academy.java.shchukin.homework.task2;
 /*
  * Вывести числа от 1 до k в виде матрицы N x N слева направо и сверху вниз, где k и N вводятся пользователем через консоль
 
+
  * */
 import java.io.*;
 import java.util.*;
@@ -15,22 +16,21 @@ public class One {
 		System.out.println("Введите в консоль число N:");
 		Scanner scan2 = new Scanner(System.in);
 		int N = scan2.nextInt();
-
-		if (k <= N) {
-			int[] numbers = new int[N];
-
-			for (int i = 0; i < numbers.length; i++) {
-				for (int i1 = 0; i1 < k; i1++) {
-					numbers[i1] = i1 + 1;
-					System.out.print(numbers[i1]);
-				}
-				System.out.println(" ");	
+		double[][] a = new double[N][N];
+		int x = 1; 
+	      	      
+	      	for (int i = 0; i < a.length; i++) {
+			for (int j = 0; j < a[i].length; j++) {
+				a[i][j] = (x + (int) (Math.random() * k));
 			}
-
-			
-
-		} else {
-			System.out.println("Ошибка. Выход за границы массива");
 		}
+
+		for (int i = 0; i < a.length; i++, System.out.println()) {
+			for (int j = 0; j < a[i].length; j++) {
+				System.out.print(a[i][j] + " ");
+			}
+		}
+
 	}
 }
+ 
