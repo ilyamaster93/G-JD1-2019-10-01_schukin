@@ -3,7 +3,15 @@ package by.academy.java.shchukin.homework.task2;
 import java.util.Scanner;
 
 public class Matrix {
-	public static void main(String[] args) {
+	
+	private double[][] matrixArr;
+    private int size;	
+
+    public static void main(String[] args) {
+		
+		int k;
+        double[][] matrix1;
+	        
 		System.out.println("#Task: find max element of matrix and delete it's row and column.");
 		System.out.println("Enter size of matrix:");
 		int n2 = (new Scanner(System.in)).nextInt();
@@ -23,7 +31,7 @@ public class Matrix {
 		System.out.println("#Task: transpose matrix.");
 		System.out.println("Enter size of matrix:");
 		int n = (new Scanner(System.in)).nextInt();
-		int a[][] = new int[n][n];
+		double a[][] = new double[n][n];
 		printMatrix(fillMatrix(a, n));
 		printMatrix(transposeMatrix(a));
 
@@ -34,13 +42,24 @@ public class Matrix {
 		printMatrix(fillMatrix(a3, n3));
 		printMatrix(roundMatrix(a3));
 
+		
 		System.out.println("#Task: find sum first and second positive numbers on the rows.");
 		System.out.println("Enter size of matrix:");
 		int n4 = (new Scanner(System.in)).nextInt();
 		double a4[][] = new double[n4][n4];
 		printMatrix(fillMatrix(a4, n4));
 		sumInRows(a4);
-
+		
+		System.out.println("#Task: row sorting.");
+		System.out.println("Enter size of matrix:");
+		int n5 = (new Scanner(System.in)).nextInt();
+		System.out.println("Input row sorting: ");
+        k = (new Scanner(System.in)).nextInt();
+		double a5[][] = new double[n5][n5];
+		printMatrix(fillMatrix(a5, n5));
+		System.out.println("Matrix after row sorting: ");
+		printMatrix(orderMatrixRows(a5, k));
+	
 	}
 
 	public static int[][] fillMatrix(int a[][], int n) {
@@ -98,9 +117,10 @@ public class Matrix {
 	}
 
 	// Sum first and second positive numbers on the rows
-	public static void double[][] sumInRows(double a[][], int n) {
+	
+	public static double sumInRows(double a[][]) {
         double generalSum=0;
-        int numEl=0;
+        int numEl=a.length;
         for (int i=0; i<numEl; i++) {
             double lineSum=0;
             boolean firstNotFound=true;
@@ -122,15 +142,15 @@ public class Matrix {
             if (!secondNotFound) {
                 generalSum += lineSum;
             }
-        }
+            }
         System.out.println("generalSum: "+generalSum);
-        //return generalSum;
-        }
+		return generalSum;
+               }
 
 	// Transposes given matrix
-	public static int[][] transposeMatrix(int a[][]) {
+	public static double[][] transposeMatrix(double a[][]) {
 		System.out.println("Transposed matrix:");
-		int b[][] = new int[a.length][a.length];
+		double b[][] = new double[a.length][a.length];
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
 				b[i][j] = a[j][i];
@@ -200,11 +220,48 @@ public class Matrix {
 		System.out.println("Maximum value=" + maxValue + ", maxI=" + maxI + ", maxJ=" + maxJ);
 		return b;
 	}
-}
+	
+	// Order matrix rows
+	private static double[][] orderMatrixRows(double[][] a5, int col) {
 
-/*
- * public static double[][] fillMatrix(double a[][], int n) {
- * System.out.println("Matrix filled with random numbers:"); for (int i = 0; i <
- * a.length; i++) { for (int j = 0; j < a[i].length; j++) { a[i][j] = (int)
- * ((Math.random() * 2 * n - n)); } } return a; }
- */
+        if (isNull(a5) || col < 1 || col > a5.length) {
+            throw new IllegalArgumentException();
+        }
+
+        double[][] m = a5.clone();
+
+        for (int i = 0, aLength = a5.length; i < aLength - 1; i++) {
+            for (int j = i + 1; j < aLength; j++) {
+                if (m[i][col - 1] > m[j][col - 1]) {
+                    m = shiftRows(m, i, j);
+                }
+            }
+        }
+
+        return m;
+    }
+	
+		private static double[][] shiftRows(double[][] a5, int row1, int row2) {
+
+        if (isNull(a5) || row1 > a5.length - 1 || row2 > a5.length - 1) {
+            throw new IllegalArgumentException();
+        }
+
+        double[][] m = a5.clone();
+
+        double t[] = m[row1];
+        m[row1] = m[row2];
+        m[row2] = t;
+
+        return m;
+    }
+
+    private static boolean isNull(double[][] a) {
+        return (a == null);
+    }
+
+    private static boolean isNull(double[] a) {
+        return (a == null);
+    }
+        
+}
