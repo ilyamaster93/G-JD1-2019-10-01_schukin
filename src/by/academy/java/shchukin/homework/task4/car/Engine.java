@@ -2,10 +2,20 @@ package by.academy.java.shchukin.homework.task4.car;
 
 public class Engine {
 	private double volume;
+	private EngineType engineType;
 
-	public Engine(double volume) {
+	private Engine(double volume, EngineType engineType) {
 		super();
 		this.volume = volume;
+		this.engineType = engineType;
+	}
+
+	private EngineType getEngineType() {
+		return engineType;
+	}
+
+	private void setEngineType(EngineType engineType) {
+		this.engineType = engineType;
 	}
 
 	public double getVolume() {

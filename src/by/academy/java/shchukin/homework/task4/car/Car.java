@@ -5,21 +5,21 @@ import java.util.List;
 
 public class Car extends SuperCar {
 
-	private List<Wheel> wheelsList;
+	private List<Wheel> wheelsList; // сделать get-set для этих трех
+	private Engine engine;
+	private String model;
+
 	private double volume;
-	
 	private boolean isMove = false;
 	private double refuel;
-	private String model;
 
 	Car(String model, List<Wheel> wheelsList) {
 		this.model = model;
-			this.wheelsList = wheelsList;
+		this.wheelsList = wheelsList;
 	}
 
-	public void stop() {
-		this.isMove = false;
-		System.out.println("Автомобиль остановлен.");
+	public String getModel() {
+		return this.model;
 	}
 
 	@Override
@@ -40,16 +40,11 @@ public class Car extends SuperCar {
 
 	@Override
 	public void replaceWheel(int num) {
-		if (!isMove && num>=1 && num <=4) {
+		if (!isMove && num >= 1 && num <= 4) {
 			System.out.println("Колесо с номером " + num + " заменено.");
 		} else {
 			System.out.println("Остановите автомобиль марки: " + getModel());
 		}
 	}
 
-	public String getModel() {
-		return this.model;
-	}
-	
-	
 }

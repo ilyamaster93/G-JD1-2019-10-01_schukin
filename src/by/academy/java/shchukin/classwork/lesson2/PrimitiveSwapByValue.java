@@ -13,7 +13,7 @@ public class PrimitiveSwapByValue {
 		final int temp = a;
 		a = b;
 		b = temp;
-		
+
 	}
 
 }

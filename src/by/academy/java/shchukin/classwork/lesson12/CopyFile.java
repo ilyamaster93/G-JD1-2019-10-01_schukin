@@ -10,7 +10,7 @@ public class CopyFile {
 		// FileInputStream in = null;
 		// FileOutputStream out = null;
 
-		try (FileInputStream in = new FileInputStream("input.txt");  //создаем стримы
+		try (FileInputStream in = new FileInputStream("input.txt"); // создаем стримы
 				FileOutputStream out = new FileOutputStream("output.txt")) {
 			// in = new FileInputStream("input.txt");
 			// out = new FileOutputStream("output.txt");

@@ -8,7 +8,7 @@ public class One {
 		System.out.println("Введите в консоль число:  ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		int t = Integer.parseInt(reader.readLine());
-		
+
 		switch (t) {
 		case 1: {
 			System.out.println("Понедельник");
@@ -30,7 +30,7 @@ public class One {
 			System.out.println("Пятница");
 		}
 			break;
-		case 6:{
+		case 6: {
 			System.out.println("Суббота");
 		}
 			break;
@@ -38,10 +38,9 @@ public class One {
 			System.out.println("Воскресенье");
 		}
 			break;
-		default:{
+		default: {
 			System.out.println("Ошибка, такого дня недели не существует");
 		}
 		}
 	}
 }
-

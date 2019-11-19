@@ -11,8 +11,8 @@ public class Seven {
 
 		Calendar calendar = Calendar.getInstance();
 		System.out.printf("current date2:%s\n", calendar.getTime().getTime());
-		
-		calendar.setTime(date1);//засунали дату1 на метсо дата2(ссылку)
+
+		calendar.setTime(date1);// засунали дату1 на метсо дата2(ссылку)
 		System.out.printf("current date2 after setting date1:%s\n", calendar.getTime().getTime());
 		calendar.add(Calendar.DAY_OF_YEAR, -3);
 		calendar.add(Calendar.SECOND, -4);

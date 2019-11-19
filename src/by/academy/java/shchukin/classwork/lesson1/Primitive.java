@@ -1,8 +1,8 @@
 package by.academy.java.shchukin.classwork.lesson1;
 
 public class Primitive {
-	
-		public static void main(final String[] args) {
+
+	public static void main(final String[] args) {
 		int a = 1;
 		System.out.println("a=" + a);
 
@@ -14,7 +14,7 @@ public class Primitive {
 
 		System.out.println("a=" + a);
 		System.out.println("b=" + b);
-		
-		}
 
-		}
+	}
+
+}

@@ -1,4 +1,5 @@
 package by.academy.java.shchukin.classwork.lesson88;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

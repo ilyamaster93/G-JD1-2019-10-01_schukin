@@ -16,7 +16,7 @@ public class Test {
 		} catch (MyException1 e) {
 			System.out.println("method1: inside catch");
 			e.printStackTrace();
-			//throw new RuntimeException();
+			// throw new RuntimeException();
 		} catch (MyException2 e) {
 			System.out.println("method1: inside catch");
 			e.printStackTrace();

@@ -4,8 +4,7 @@ public class PassengerCar extends Car {
 
 	@Override
 	public void move() {
-	 
-		
+
 	}
 
 }

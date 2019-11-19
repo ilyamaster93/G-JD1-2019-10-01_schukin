@@ -6,10 +6,10 @@ import java.util.Date;
 public class Six {
 
 	public static void main(String[] args) {
-		Date date = new Date();//тек дата и время
+		Date date = new Date();// тек дата и время
 		System.out.println(date);
 		long time = date.getTime();
-		System.out.println(time);//получаем из DAte long
+		System.out.println(time);// получаем из DAte long
 		Date misticDate = new Date(-12400400);
 		System.out.println(misticDate);
 		System.out.println(date.getMonth());

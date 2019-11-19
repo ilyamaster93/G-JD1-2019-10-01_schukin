@@ -4,8 +4,7 @@ public class One {
 
 	private static abstract class Shape {
 		abstract void draw();
-			}
-	
+	}
 
 	private static class Circle extends Shape {
 		void draw() {
@@ -13,7 +12,7 @@ public class One {
 		}
 	}
 
-	private static class Triangle extends Shape{
+	private static class Triangle extends Shape {
 		void draw() {
 			System.out.print("/_\\");
 		}
@@ -30,19 +29,14 @@ public class One {
 			shape.draw();
 		}
 	}
-	
-	
-	// наследование рулит!
-	/*public static void drawTriangle5Times(Triangle triangle) {
-		for (int i = 0; i < 5; i++) {
-			triangle.draw();
-		}
-	}
 
-	public static void drawCircles5Times(Circle circle) {
-		for (int i = 0; i < 5; i++) {
-			circle.draw();
-		}
-	}               */
+	// наследование рулит!
+	/*
+	 * public static void drawTriangle5Times(Triangle triangle) { for (int i = 0; i
+	 * < 5; i++) { triangle.draw(); } }
+	 * 
+	 * public static void drawCircles5Times(Circle circle) { for (int i = 0; i < 5;
+	 * i++) { circle.draw(); } }
+	 */
 
 }

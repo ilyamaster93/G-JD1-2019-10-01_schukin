@@ -5,6 +5,6 @@ public abstract class SuperCar {
 	abstract void move();
 
 	abstract void refuel(double liter);
-	
-	abstract void replaceWheel (int num);
+
+	abstract void replaceWheel(int num);
 }

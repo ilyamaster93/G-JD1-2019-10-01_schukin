@@ -9,11 +9,10 @@ import java.util.Locale;
 public class LocaleTest4 {
 
 	public static void main(final String[] args) throws ParseException {
-Locale locale = new Locale("ru", "RU");
-Date currentDate = new Date();
-DateFormat df = DateFormat.getDateInstance(DateFormat.FULL,locale);
-String format = df.format(currentDate);
-System.out.println(format); 
+		Locale locale = new Locale("ru", "RU");
+		Date currentDate = new Date();
+		DateFormat df = DateFormat.getDateInstance(DateFormat.FULL, locale);
+		String format = df.format(currentDate);
+		System.out.println(format);
 	}
 }
-

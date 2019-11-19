@@ -17,9 +17,9 @@ public class One {
 		Scanner scan2 = new Scanner(System.in);
 		int N = scan2.nextInt();
 		double[][] a = new double[N][N];
-		int x = 1; 
-	      	      
-	      	for (int i = 0; i < a.length; i++) {
+		int x = 1;
+
+		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[i].length; j++) {
 				a[i][j] = (x + (int) (Math.random() * k));
 			}
@@ -33,4 +33,3 @@ public class One {
 
 	}
 }
- 

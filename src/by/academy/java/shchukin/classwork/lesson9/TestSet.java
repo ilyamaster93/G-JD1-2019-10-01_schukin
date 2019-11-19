@@ -18,15 +18,15 @@ public class TestSet {
 		@Override
 		public int hashCode() {
 			System.out.println("hashcode() called for s" + number);
-			//return super.hashCode();
-return 1;
+			// return super.hashCode();
+			return 1;
 		}
 
 		@Override
 		public boolean equals(final Object obj) {
 			System.out.println("equals() called for s" + number);
 			return super.equals(obj);
-			//return true;
+			// return true;
 		}
 	}
 
@@ -36,7 +36,7 @@ return 1;
 		final Sample s2 = new Sample();
 		final Sample s3 = new Sample();
 
-		set.add(s1);//поставь отметку для дебага и смотри через F6, потом разкоммичивай
+		set.add(s1);// поставь отметку для дебага и смотри через F6, потом разкоммичивай
 		set.add(s2);
 		set.add(s3);
 		System.out.println(set.size());

@@ -6,10 +6,10 @@ import java.util.List;
 import by.academy.java.shchukin.homework.task4.earthmodel.Mainland;
 
 public class Country {
-	private String countryName; 
+	private String countryName;
 	private String capitalName;
-	private double countrySquare; 
-	private int numberOfRegions; 
+	private double countrySquare;
+	private int numberOfRegions;
 	List<Region> regionsList = new ArrayList<>();
 	List<District> districtsList = new ArrayList<>();
 	List<City> citiesList = new ArrayList<>();
