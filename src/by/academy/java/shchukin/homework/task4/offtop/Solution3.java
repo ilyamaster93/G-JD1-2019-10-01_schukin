@@ -31,13 +31,13 @@ public void setB(Integer b) {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		a=Integer.parseInt(reader.readLine());
 		b = Integer.parseInt(reader.readLine());
-		Solution3 one=new Solution3 (a,b);
-		one.setA(a);
-        one.setB(b);
+		//Solution3 one=new Solution3 (a,b);
+		//one.setA(a);
+//        one.setB(b);
 		
 		if ((a >= 0) && (b >= 0)) {
-			System.out.println(one.nod(a,b));
-			System.out.println(one.nok(a,b));
+			System.out.println(nod(a,b));
+			System.out.println(nok(a,b));
 			
 		} else {
 			throw new Exception();

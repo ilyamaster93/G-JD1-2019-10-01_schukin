@@ -14,7 +14,7 @@ public class Solution1 {
         if (i <= 0 || y <= 0) throw new Exception();
         System.out.println(gcd(i, y));
         
-        public static int gcd(Int a,Int b) {
+        public static int gcd(Integer a,Integer b) {
             while (b !=0) {
                 int tmp = a%b;
                 a = b;
