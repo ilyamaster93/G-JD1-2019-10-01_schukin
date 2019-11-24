@@ -12,7 +12,7 @@ public class Solution1 {
         String m = reader.readLine();
         y = Integer.parseInt(m);
         if (i <= 0 || y <= 0) throw new Exception();
-        System.out.println(gcd(i, y));
+        //System.out.println(gcd(i, y));
         
         public static int gcd(Integer a,Integer b) {
             while (b !=0) {
@@ -20,7 +20,7 @@ public class Solution1 {
                 a = b;
                 b = tmp;
             }
-            return a;
+           // return a;
         }
         
         
