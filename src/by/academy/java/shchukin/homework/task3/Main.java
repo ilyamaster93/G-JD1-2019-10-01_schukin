@@ -1,46 +1,44 @@
 package by.academy.java.shchukin.homework.task3;
-
-import java.util.InputMismatchException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
-
+ 
 public class Main {
-    //В каждом слове текста k-ю букву заменить заданным символом. Если k больше длины слова, корректировку не выполнять.
-    public static void main(String[] args) {
-
-        System.out.println("Enter text string");
-        Scanner sc1 = new Scanner(System.in);
-        String text = sc1.nextLine();
-        String[] strArr= text.split(" ");
-
-        System.out.println("Enter number");
-        int n = 0;
-        Scanner sc2 = new Scanner(System.in);
-        try{
-         n = sc2.nextInt();}
-        catch (InputMismatchException fg)
-    {
-        System.out.print("Not number" );
-        return;
-    }
-
-        System.out.println("Enter symbol");
-        Scanner sc3 = new Scanner(System.in);
-        char symbol = sc3.next().charAt(0);
-
-        for(int i = 0; i<strArr.length; i++) {
-
-
-            String newStrArr [] = new String[strArr.length];
-            if(strArr[i].length()>n)
-            {
-               newStrArr[i] = strArr[i].substring(0,n) + symbol + strArr[i].substring(n+1);
+ 
+    private static String[] sSentencesWords;
+    private static List <String> sShortWordsList;
+    private static List <String> sLongWordsList;
+ 
+    public static void main(String[] args) throws IOException {
+    	System.out.println("Enter text");
+    	sShortWordsList = new ArrayList <String> ();
+        sLongWordsList = new ArrayList <String> ();
+        sSentencesWords = (new Scanner(System.in)).nextLine().trim().split("[\\s.,?!]+");
+ 
+        int minimalWordLength = sSentencesWords[0].length();
+        for (String currentWord : sSentencesWords) {
+            if (minimalWordLength > currentWord.length()) {
+                minimalWordLength = currentWord.length();
+                sShortWordsList.clear();
+                sShortWordsList.add(currentWord);
+            } else if (minimalWordLength == currentWord.length()) {
+                sShortWordsList.add(currentWord);
             }
-            else{
-             newStrArr[i] = strArr[i];
-            }
-            System.out.print(newStrArr[i] + " ");
-            
         }
-
+        System.out.println("Shortest words:\n " + Arrays.toString(sShortWordsList.toArray()));
+        
+        int maximalWordLength = sSentencesWords[0].length();
+        for (String currentWord : sSentencesWords) {
+            if (maximalWordLength < currentWord.length()) {
+            	maximalWordLength = currentWord.length();
+                sLongWordsList.clear();
+                sLongWordsList.add(currentWord);
+            } else if (maximalWordLength == currentWord.length()) {
+                sLongWordsList.add(currentWord);
+            }
+        }
+        System.out.println("Longest words:\n " + Arrays.toString(sLongWordsList.toArray()));
     }
 }

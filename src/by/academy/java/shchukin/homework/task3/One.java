@@ -16,9 +16,8 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class Gibrid {
+public class One {
 
-	// private static String[] sSentencesWords;
 	private static String[] strArr;
 	private static List<String> sShortWordsList;
 	private static List<String> sLongWordsList;
@@ -27,8 +26,6 @@ public class Gibrid {
 
 		String text = readFromUrl("http://25.io/toau/audio/sample.txt");
 		System.out.println(text);
-		//String[] strArr = text.split(" ");
-		//strArr = text.split(" ");
 		strArr = text.trim().split("[\\s.,?!]+");
 
 		// task1
@@ -56,6 +53,7 @@ public class Gibrid {
 			}
 			System.out.print(newStrArr[i] + " ");
 		}
+
 		// task2
 		System.out.println("\nEnter you number");
 		int n = 0;
@@ -72,7 +70,12 @@ public class Gibrid {
 				.forEach(e -> System.out.println((char) (int) e.getKey() + " - " + e.getValue()));
 
 		// task3
-
+		String pattern = "\\b(.).*?\\1\\b";
+		Pattern p = Pattern.compile(pattern);
+		Matcher m1 = p.matcher(text);
+		while (m1.find()) {
+			System.out.println(text.substring(m1.start(), m1.end()));
+		}
 		// task4
 		sShortWordsList = new ArrayList<String>();
 		sLongWordsList = new ArrayList<String>();
@@ -110,6 +113,7 @@ public class Gibrid {
 	private static String readFromUrl(final String url) throws MalformedURLException, IOException, ProtocolException {
 		final URL obj = new URL(url);
 		final HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+
 		connection.setRequestMethod("GET");
 		String string = null;
 		try (final BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));) {
