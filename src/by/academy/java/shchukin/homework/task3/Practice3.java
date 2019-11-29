@@ -49,10 +49,12 @@ public class Practice3 {
 	}
 
 	private static StringBuilder findFirstAndLastSimilarLettersInWord(String text) {
-		String[] array = text.split(" ");
+		String[] array = text.split("not ");
 		StringBuilder sb = new StringBuilder();
 		for (String word : array) {
-			if (word.charAt(0) == word.charAt(word.length() - 1)) {
+			
+			System.out.printf("",word);
+			if (word.length()!=0&&word.charAt(0) == word.charAt(word.length() - 1)) {
 				System.out.print(sb.append(word).append(" "));
 			}
 		}
