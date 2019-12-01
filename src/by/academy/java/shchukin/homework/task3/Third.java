@@ -1,6 +1,7 @@
 package by.academy.java.shchukin.homework.task3;
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -16,22 +17,35 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class Gibrid {
+public class Third {
 
-	// private static String[] sSentencesWords;
+	private static String text;
 	private static String[] strArr;
+	private static String[] strArrWithoutSymbols;
 	private static List<String> sShortWordsList;
 	private static List<String> sLongWordsList;
 
 	public static void main(String[] args) throws IOException, ProtocolException, IOException {
 
-		String text = readFromUrl("http://25.io/toau/audio/sample.txt");
+		text = readFromUrl("http://25.io/toau/audio/sample.txt");
 		System.out.println(text);
-		//String[] strArr = text.split(" ");
-		//strArr = text.split(" ");
-		strArr = text.trim().split("[\\s.,?!]+");
+		strArr = text.split(" ");
+		strArrWithoutSymbols = text.trim().split("[\\s.,?!]+");
 
 		// task1
+		nSymbolChanger();
+
+		// task2
+		FinderTheMostRecurringCharacters();
+
+		// task3
+		System.out.print(findFirstAndLastSimilarLettersInWord(text));
+
+		// task4
+		wordMaxMinWriter();
+	}
+
+	public static void nSymbolChanger() {
 		System.out.println("Enter number");
 		int m = 0;
 		Scanner sc = new Scanner(System.in);
@@ -56,7 +70,9 @@ public class Gibrid {
 			}
 			System.out.print(newStrArr[i] + " ");
 		}
-		// task2
+	}
+
+	public static void FinderTheMostRecurringCharacters() {
 		System.out.println("\nEnter you number");
 		int n = 0;
 		Scanner sc3 = new Scanner(System.in);
@@ -70,21 +86,15 @@ public class Gibrid {
 		text.chars().mapToObj(e -> e).collect(Collectors.groupingBy(e -> e, Collectors.counting())).entrySet().stream()
 				.sorted((e1, e2) -> (int) (e2.getValue() - e1.getValue())).limit(n)
 				.forEach(e -> System.out.println((char) (int) e.getKey() + " - " + e.getValue()));
-
-		// task3
-
-		// task4
-		sShortWordsList = new ArrayList<String>();
-		sLongWordsList = new ArrayList<String>();
-		wordMaxMinWriter();
-
 	}
 
 	public static void wordMaxMinWriter() {
-		int minimalWordLength = strArr[0].length();
-		int maximalWordLength = strArr[0].length();
+		sShortWordsList = new ArrayList<String>();
+		sLongWordsList = new ArrayList<String>();
+		int minimalWordLength = strArrWithoutSymbols[0].length();
+		int maximalWordLength = strArrWithoutSymbols[0].length();
 
-		for (String currentWord : strArr) {
+		for (String currentWord : strArrWithoutSymbols) {
 			if (minimalWordLength > currentWord.length()) {
 				minimalWordLength = currentWord.length();
 				sShortWordsList.clear();
@@ -93,9 +103,9 @@ public class Gibrid {
 				sShortWordsList.add(currentWord);
 			}
 		}
-		System.out.println("Shortest words:\n " + Arrays.toString(sShortWordsList.toArray()));
+		System.out.println("\nShortest words:\n " + Arrays.toString(sShortWordsList.toArray()));
 
-		for (String currentWord : strArr) {
+		for (String currentWord : strArrWithoutSymbols) {
 			if (maximalWordLength < currentWord.length()) {
 				maximalWordLength = currentWord.length();
 				sLongWordsList.clear();
@@ -105,6 +115,18 @@ public class Gibrid {
 			}
 		}
 		System.out.println("Longest words:\n " + Arrays.toString(sLongWordsList.toArray()));
+	}
+
+	private static StringBuilder findFirstAndLastSimilarLettersInWord(String text) {
+
+		System.out.println("First And Last Similar Letters In Those Words: ");
+		StringBuilder sb = new StringBuilder();
+		for (String word : strArrWithoutSymbols) {
+			if (word.length() != 0 && word.charAt(0) == word.charAt(word.length() - 1)) {
+				sb.append(word).append(" ");
+			}
+		}
+		return sb;
 	}
 
 	private static String readFromUrl(final String url) throws MalformedURLException, IOException, ProtocolException {
