@@ -31,7 +31,7 @@ public class Third {
 		System.out.println(text);
 		strArr = text.split(" ");
 		strArrWithoutSymbols = text.trim().split("[\\s.,?!]+");
-
+		
 		// task1
 		nSymbolChanger();
 
