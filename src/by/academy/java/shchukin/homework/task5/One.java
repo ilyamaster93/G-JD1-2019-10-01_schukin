@@ -45,8 +45,8 @@ public class One {
 
 	}
 
-	public static void diretoriesCreator() {
-		File homeDirectory = new File("E:\\shchukin\\forFiveTask");
+	public static void diretoriesCreator() throws IOException {
+		File homeDirectory = new File("d:\\shchukin\\forFiveTask");
 		String newStrArr[] = new String[strArrWithoutSymbols.length];
 		for (int i = 0; i < strArrWithoutSymbols.length; i++) {
 			String directoryName = strArrWithoutSymbols[i].substring(0, 1);
@@ -61,17 +61,19 @@ public class One {
 				System.out.println("Directories already exist!");
 			}
 			File newFile = new File(newDirectory, "words.txt");
+			newFile.createNewFile();
+			
 		}
 	}
 
 	public static void filesCreator() throws IOException {
-		File file1 = new File("E:\\shchukin\\forFiveTask\\words.txt");
+		File file1 = new File("d:\\shchukin\\forFiveTask\\words.txt");
 		FileOutputStream fileOutputStream = new FileOutputStream(file1);
 		String content = "Тут должен быть какой-то текст";
 		fileOutputStream.write(content.getBytes());
 		fileOutputStream.close();
 
-		File homeDirectory = new File("E:\\shchukin\\forFiveTask");
+		File homeDirectory = new File("d:\\shchukin\\forFiveTask");
 		for (File file : homeDirectory.listFiles()) {
 			System.out.println(file.getName());
 			// file.createNewFile();
