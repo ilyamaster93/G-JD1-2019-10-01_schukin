@@ -1,4 +1,4 @@
-package by.academy.java.shchukin.homework.task5;
+package by.academy.java.shchukin.homework.task5.offtop;
 import java.io.File;
 
 import java.io.IOException;

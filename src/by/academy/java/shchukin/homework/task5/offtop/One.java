@@ -1,7 +1,6 @@
-package by.academy.java.shchukin.homework.task5;
+package by.academy.java.shchukin.homework.task5.offtop;
 
 import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -35,45 +34,59 @@ public class One {
 		}
 
 		System.out.println();
-		diretoriesCreator();
+		diretoriesAndFIlesCreator();
 
 		System.out.println();
-		filesCreator();
+		// filesCreator();
 
 		// System.out.println();
 		// filesWriter();
 
 	}
 
-	public static void diretoriesCreator() throws IOException {
-		File homeDirectory = new File("d:\\shchukin\\forFiveTask");
+	public static void diretoriesAndFIlesCreator() {
+		File homeDirectory = new File("E:\\shchukin\\forFiveTask");
 		String newStrArr[] = new String[strArrWithoutSymbols.length];
 		for (int i = 0; i < strArrWithoutSymbols.length; i++) {
 			String directoryName = strArrWithoutSymbols[i].substring(0, 1);
 			File newDirectory = new File(homeDirectory, directoryName);
 			if (!newDirectory.exists()) {
 				if (newDirectory.mkdirs()) {
-					System.out.println("Directories are created!");
+					System.out.println("Directory is created!");
 				} else {
-					System.out.println("Failed to create directories!");
+					System.out.println("Failed to create directory!");
 				}
 			} else {
-				System.out.println("Directories already exist!");
+				System.out.println("Directory already exist!");
 			}
 			File newFile = new File(newDirectory, "words.txt");
-			newFile.createNewFile();
-			
+			if (!newFile.exists()) {
+				try {
+					if (newFile.createNewFile()) {
+						System.out.println("File is created!");
+
+					} else {
+						System.out.println("Failed to create file!");
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} else {
+				System.out.println("File already exist!");
+			}
+
 		}
 	}
 
 	public static void filesCreator() throws IOException {
-		File file1 = new File("d:\\shchukin\\forFiveTask\\words.txt");
+		File file1 = new File("E:\\shchukin\\forFiveTask\\words.txt");
 		FileOutputStream fileOutputStream = new FileOutputStream(file1);
 		String content = "Тут должен быть какой-то текст";
 		fileOutputStream.write(content.getBytes());
 		fileOutputStream.close();
 
-		File homeDirectory = new File("d:\\shchukin\\forFiveTask");
+		File homeDirectory = new File("E:\\shchukin\\forFiveTask");
 		for (File file : homeDirectory.listFiles()) {
 			System.out.println(file.getName());
 			// file.createNewFile();
