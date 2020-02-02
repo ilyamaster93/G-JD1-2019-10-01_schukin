@@ -1,8 +1,10 @@
-package by.academy.java.shchukin.homework.task4.car;
+ package by.academy.java.shchukin.homework.task4.car;
 
 public abstract class SuperCar {
 
 	abstract void move();
+	
+	abstract void stop();
 
 	abstract void refuel(double liter);
 

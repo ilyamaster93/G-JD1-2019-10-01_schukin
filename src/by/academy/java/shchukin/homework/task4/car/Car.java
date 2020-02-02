@@ -27,6 +27,12 @@ public class Car extends SuperCar {
 		this.isMove = true;
 		System.out.println("Автомобиль едет.");
 	}
+	
+	@Override
+	public void stop() {
+		this.isMove = false;
+		System.out.println("Автомобиль стоит.");
+	}
 
 	@Override
 	public void refuel(double liter) {
