@@ -4,13 +4,9 @@ import java.util.Scanner;
 
 public class Matrix {
 
-	private double[][] matrixArr;
-	private int size;
-
 	public static void main(String[] args) {
 
 		int k;
-		double[][] matrix1;
 
 		System.out.println("#Task: find max element of matrix and delete it's row and column.");
 		System.out.println("Enter size of matrix:");

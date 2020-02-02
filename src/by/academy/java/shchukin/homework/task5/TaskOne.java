@@ -15,12 +15,11 @@ import java.io.FileOutputStream;
 
 public class TaskOne {
 
-	private static String text;
 	private static String[] strArrWithoutSymbols;
 
 	public static void main(String[] args) throws IOException, ProtocolException, IOException {
 
-		text = readFromUrl("https://drive.google.com/uc?export=download&id=1AoZPYYLLdEHxmvQCcpyrI1Ej-cJ_3IqW");
+		String text = readFromUrl("https://drive.google.com/uc?export=download&id=1AoZPYYLLdEHxmvQCcpyrI1Ej-cJ_3IqW");
 		System.out.println(text);
 		strArrWithoutSymbols = text.trim().split("[\\s.,?!&()0-9+]+");
 
@@ -33,20 +32,25 @@ public class TaskOne {
 	}
 
 	public static void diretoriesAndFIlesCreator() {
-		File homeDirectory = new File("E:\\shchukin\\forFiveTask");
+		File homeDirectory = new File("E:\\shchukin\\forFiveTasks");
 		String newStrArr[] = new String[strArrWithoutSymbols.length];
 		for (int i = 0; i < strArrWithoutSymbols.length; i++) {
 			String directoryName = strArrWithoutSymbols[i].substring(0, 1);
 			File newDirectory = new File(homeDirectory, directoryName);
-			if (!newDirectory.exists()) {
-				if (newDirectory.mkdirs()) {
-					System.out.println("Directory is created!");
-				} else {
-					System.out.println("Failed to create directory!");
-				}
-			} else {
+			/*
+			 * if (!newDirectory.exists()) { if (newDirectory.mkdirs()) {
+			 * System.out.println("Directory is created!"); } else {
+			 * System.out.println("Failed to create directory!"); } } else {
+			 * System.out.println("Directory already exist!"); }
+			 */
+			if (newDirectory.exists()) {
 				System.out.println("Directory already exist!");
+			} else if (newDirectory.mkdirs()) {
+				System.out.println("Directory is created!");
+			} else {
+				System.out.println("Failed to create directory!");
 			}
+
 			File newFile = new File(newDirectory, "words.txt");
 			if (!newFile.exists()) {
 				try {
@@ -72,6 +76,7 @@ public class TaskOne {
 			}
 
 		}
+
 	}
 
 	private static String readFromUrl(final String url) throws MalformedURLException, IOException, ProtocolException {

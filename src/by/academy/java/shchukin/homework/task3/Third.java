@@ -22,9 +22,7 @@ public class Third {
 	private static String text;
 	private static String[] strArr;
 	private static String[] strArrWithoutSymbols;
-	private static List<String> sShortWordsList;
-	private static List<String> sLongWordsList;
-
+	
 	public static void main(String[] args) throws IOException, ProtocolException, IOException {
 
 		text = readFromUrl("http://25.io/toau/audio/sample.txt");
@@ -36,7 +34,7 @@ public class Third {
 		nSymbolChanger();
 
 		// task2
-		FinderTheMostRecurringCharacters();
+		finderTheMostRecurringCharacters();
 
 		// task3
 		System.out.print(findFirstAndLastSimilarLettersInWord(text));
@@ -72,7 +70,7 @@ public class Third {
 		}
 	}
 
-	public static void FinderTheMostRecurringCharacters() {
+	public static void finderTheMostRecurringCharacters() {
 		System.out.println("\nEnter you number");
 		int n = 0;
 		Scanner sc3 = new Scanner(System.in);
@@ -89,8 +87,8 @@ public class Third {
 	}
 
 	public static void wordMaxMinWriter() {
-		sShortWordsList = new ArrayList<String>();
-		sLongWordsList = new ArrayList<String>();
+		List<String> sShortWordsList= new ArrayList<String>();
+		List<String> sLongWordsList= new ArrayList<String>();
 		int minimalWordLength = strArrWithoutSymbols[0].length();
 		int maximalWordLength = strArrWithoutSymbols[0].length();
 

@@ -15,8 +15,8 @@ public class One {
 		int k = scan1.nextInt();
 		System.out.println("Введите в консоль число N:");
 		Scanner scan2 = new Scanner(System.in);
-		int N = scan2.nextInt();
-		double[][] a = new double[N][N];
+		int n = scan2.nextInt();
+		double[][] a = new double[n][n];
 		int x = 1;
 
 		for (int i = 0; i < a.length; i++) {
