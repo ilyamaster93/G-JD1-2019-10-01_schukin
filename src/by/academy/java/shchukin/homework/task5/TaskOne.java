@@ -32,7 +32,7 @@ public class TaskOne {
 	}
 
 	public static void diretoriesAndFIlesCreator() {
-		File homeDirectory = new File("E:\\shchukin\\forFiveTasks");
+		File homeDirectory = new File("E:\\shchukin\\forFiveTask");
 		String newStrArr[] = new String[strArrWithoutSymbols.length];
 		for (int i = 0; i < strArrWithoutSymbols.length; i++) {
 			String directoryName = strArrWithoutSymbols[i].substring(0, 1);
